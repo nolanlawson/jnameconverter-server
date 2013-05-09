@@ -1,7 +1,7 @@
 Japanese Name Converter Server
 =====================
 
-JapaneseNameConverter simple RESTful web server
+Simple RESTful web server for the Japanese Name Converter UI project.
 
 Related projects
 ---------------
