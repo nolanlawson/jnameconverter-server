@@ -24,10 +24,10 @@ public class JapaneseNameConverterService {
 
         try {
             Pair<String, String> result = japaneseNameGenerator.convertToRomaajiAndKatakana(query);
-            return new ConversionResult(false, result.getFirst(), result.getSecond());
+            return new ConversionResult(false, query, result.getFirst(), result.getSecond());
         } catch (Throwable t) {
             t.printStackTrace();
-            return new ConversionResult(true, null, null);
+            return new ConversionResult(true, query, null, null);
         }
     }
 
