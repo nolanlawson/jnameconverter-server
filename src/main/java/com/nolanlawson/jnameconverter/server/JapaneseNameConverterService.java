@@ -15,7 +15,7 @@ import com.nolanlawson.japanesenamegenerator.v3.util.Pair;
 @Path("/convert")
 public class JapaneseNameConverterService {
 
-    private JapaneseNameGenerator japaneseNameGenerator = buildJapanesenameGenerator();
+    private static JapaneseNameGenerator japaneseNameGenerator = buildJapanesenameGenerator();
 
     @GET
     @Path("/")
@@ -31,14 +31,16 @@ public class JapaneseNameConverterService {
         }
     }
 
-    private JapaneseNameGenerator buildJapanesenameGenerator() {
+    private static JapaneseNameGenerator buildJapanesenameGenerator() {
 
         System.out.println("instantiating japanese name converter...");
 
-        InputStream roomajiInputStream = new BufferedInputStream(getClass().getClassLoader().getResourceAsStream(
+        InputStream roomajiInputStream = new BufferedInputStream(
+                JapaneseNameConverterService.class.getClassLoader().getResourceAsStream(
                 "roomaji_model_20090128_pop1_3_3_min2_fewer_rules_hacked.txt"));
 
-        InputStream directLookupInputstream = new BufferedInputStream(getClass().getClassLoader().getResourceAsStream(
+        InputStream directLookupInputstream = new BufferedInputStream(
+                JapaneseNameConverterService.class.getClassLoader().getResourceAsStream(
                 "all_names.txt"));
 
         return new JapaneseNameGenerator(roomajiInputStream, directLookupInputstream);
