@@ -3,6 +3,16 @@ Japanese Name Converter Server
 
 Simple RESTful web server for the Japanese Name Converter UI project.
 
+## Prerequired
+- Maven
+- Tomcat Server
+
+## Prepare
+```
+mvn install
+mvn package
+```
+
 Related projects
 ---------------
 

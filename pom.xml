@@ -37,5 +37,29 @@
 	</dependencies>
 	<build>
 		<finalName>jnameconverter-server</finalName>
+		<plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-install-plugin</artifactId>
+            <executions>
+                <execution>
+                    <id>install-external</id>
+                    <phase>clean</phase>
+                    <configuration>
+                      <file>${basedir}/lib/japanese-name-generator-v3-1.0-SNAPSHOT.jar</file>
+                      <repositoryLayout>default</repositoryLayout>
+                      <groupId>com.nolanlawson</groupId>
+                      <artifactId>japanese-name-generator-v3</artifactId>
+                      <version>1.1</version>
+                      <packaging>jar</packaging>
+                      <generatePom>true</generatePom>
+                    </configuration>
+                    <goals>
+                      <goal>install-file</goal>
+                    </goals>
+                </execution>
+            </executions>
+          </plugin>
+       </plugins>
 	</build>
 </project>
